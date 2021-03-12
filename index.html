@@ -132,6 +132,69 @@
                 </p>
             </div>
         </div>
+        <form action="#" class="form form__hidden">
+            <p class="form__title">Оформление заказа</p>
+            <span class="form__required_text">*обязательно для заполнения</span>
+            <span class="form__close_btn"></span>
+            <div class="form__inputs_container">
+                <div class="form__input_wrapper">
+                    <input required type="text" name="name" id="name" class="form__input">
+                    <label for="name" class="form__label">Имя</label>
+                </div>
+                <div class="form__input_wrapper">
+                    <input required type="text" name="surname" id="surname" class="form__input">
+                    <label for="surname" class="form__label">Фамилия</label>
+                </div>
+                <div class="form__input_wrapper">
+                    <input required type="text" name="phone" id="phone" class="form__input">
+                    <label for="phone" class="form__label">Телефон</label>
+                </div>
+                <div class="form__input_wrapper">
+                    <input required type="text" name="city" id="city" class="form__input">
+                    <label for="city" class="form__label">Город</label>
+                </div>
+                <div class="form__input_wrapper">
+                    <input required type="text" name="address" id="address" class="form__input">
+                    <label for="address" class="form__label">Адрес</label>
+                </div>
+                <div class="form__input_wrapper">
+                    <input required type="text" name="date" id="date" class="form__input">
+                    <label for="date" class="form__label">Выбрите дату доставки</label>
+                </div>
+            </div>
+            <div class="form__textarea_wrapper">
+                <textarea name="textarea" id="textarea" cols="30" rows="6" class="form__text"></textarea>
+                <label for="textarea" class="form__label">Дополнительная информация</label>
+            </div>
+            <div class="form__botton_container">
+                <div class="form__password_wrapper">
+                    <input required type="text" name="password" id="password" class="form__input">
+                    <label for="password" class="form__label">Пароль</label>
+                    <p class="form__text_under_password">Электронная почта, на которую вы получили приглашение выбрать подарок</p>
+                </div>
+                <div class="form__chackbox_wrapper">
+                    <label for="personal_data" class="form__checkbox_label">
+                        <input class="form__checkbox" type="checkbox" name="personal_data" id="personal_data">
+                        Я согласен на обработку персональных данных
+                    </label>
+                    <label for="info_from_VTB" class="form__checkbox_label">
+                        <input class="form__checkbox" type="checkbox" name="info_from_VTB" id="info_from_VTB">
+                        Я соглашаюсь получать электронные сообщения ООО ВТБ Факторинг 
+                    </label>
+                    <label for="info_from_flowwow" class="form__checkbox_label">
+                        <input class="form__checkbox" type="checkbox" name="info_from_flowwow" id="info_from_flowwow">
+                        Я соглашаюсь получать информацию о специальных предложениях Flowwow
+                    </label>
+                </div>
+            </div>
+            <button class="form__submit" type="submit">Отправить</button>
+        </form>
+        <div class="success success__hidden">
+            <span class="success__title">Превосходный выбор!</span>
+            <p class="success__text">Мы соберем Ваш букет и перезвоним,<br>чтобы уточнить время доставки</p>
+            <img src="./images/dest/popup_bg.png" alt="background" class="success__img">
+            <button class="success__ok">Ок</button>
+        </div>
     </main>
     <footer class="footer">
         <a href="#">

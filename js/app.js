@@ -3,11 +3,20 @@ const nextFlower = document.querySelector('.flowers__next');
 const prevFlower = document.querySelector('.flowers__prev');
 const flowersPage = document.querySelector('.flowers__page');
 const flowers = document.querySelector('.flowers');
+const flowersOrderBtn = document.querySelector('.flowers__order_btn');
 const flowersWrapper = document.querySelector('.flowers__wrapper');
 const goToChooseBtn = document.querySelector('.top__goToChooseBtn');
 const questionsBtn = document.querySelector('.question__btn');
 const questionsWrapper = document.querySelector('.questions__wrapper');
+const form = document.querySelector('.form');
+const formRequiredInputs = document.querySelectorAll('.form__input[required]');
+const formCloseBtn = document.querySelector('.form__close_btn');
+const formSubmit = document.querySelector('.form__submit');
+const successPopup = document.querySelector('.success');
+const successOk = document.querySelector('.success__ok');
 
+const windowWidth = window.innerWidth;
+let flowersWrapperPosition = windowWidth * 1.5;
 
 let currentFlowerNumber = 1;
 
@@ -26,7 +35,33 @@ goToChooseBtn.addEventListener('click', function() {
     });
 });
 
-questionsBtn.removeAttribute('href');
+function hideSuccessPopup() {
+    successPopup.classList.add('success__hidden');
+}
+
+function showSuccessPopup() {
+    successPopup.classList.remove('success__hidden');
+    successOk.addEventListener('click', hideSuccessPopup);
+}
+
+function showForm() {
+    form.classList.remove('form__hidden');
+    form.addEventListener('submit', function(evt) {
+        evt.preventDefault();
+        showSuccessPopup();
+        hideForm();
+    });
+}
+
+function hideForm() {
+    form.classList.add('form__hidden');
+    form.reset();
+}
+
+flowersOrderBtn.addEventListener('click', function() {
+    showForm();
+    formCloseBtn.addEventListener('click', hideForm);
+});
 
 questionsBtn.addEventListener('click', function() {
     window.scrollTo({
@@ -57,15 +92,17 @@ function setButtonsDisabled() {
 nextFlower.addEventListener('click', function() {
     currentFlowerNumber++;
     flowersPage.textContent = '0' + currentFlowerNumber.toString();
-    flowersWrapper.style.left = flowersLeftValues[currentFlowerNumber - 1] + 'px';
-
+    flowersWrapperPosition -= windowWidth;
+    flowersWrapper.style.left = flowersWrapperPosition + 'px';
+    
     setButtonsDisabled();
 });
 
 prevFlower.addEventListener('click', function() {
     currentFlowerNumber--;
     flowersPage.textContent = '0' + currentFlowerNumber.toString();
-    flowersWrapper.style.left = flowersLeftValues[currentFlowerNumber - 1] + 'px';
-
+    flowersWrapperPosition += windowWidth;
+    flowersWrapper.style.left = flowersWrapperPosition + 'px';
     setButtonsDisabled();
-})
+});
+
