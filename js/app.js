@@ -90,7 +90,6 @@ function setButtonsDisabled() {
 }
 
 nextFlower.addEventListener('click', function() {
-    console.log(flowers.offsetWidth, flower.offsetWidth, flowersWrapper.offsetWidth);
     currentFlowerNumber++;
     flowersPage.textContent = '0' + currentFlowerNumber.toString();
     flowersWrapperPosition -= windowWidth;
