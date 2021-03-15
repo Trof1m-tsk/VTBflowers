@@ -18,7 +18,8 @@
 html {
   background-color: #e5e5e5;
   max-width: 540px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  height: 100%; }
 
 body {
   max-width: 540px;
@@ -379,16 +380,17 @@ body {
   max-width: 540px;
   min-width: 320px;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 16px 24px 24px;
   position: fixed;
   top: 0;
+  bottom: auto;
   left: auto;
   right: auto;
   background-color: #ffffff;
-  overflow: auto;
+  overflow-y: scroll;
   -webkit-transform-origin: 50% 50%;
       -ms-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
