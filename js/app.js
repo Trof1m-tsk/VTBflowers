@@ -1,8 +1,10 @@
+const body = document.querySelector('body');
 const questionItems = document.querySelectorAll('.questions__item');
 const nextFlower = document.querySelector('.flowers__next');
 const prevFlower = document.querySelector('.flowers__prev');
 const flowersPage = document.querySelector('.flowers__page');
 const flowers = document.querySelector('.flowers');
+const flower = document.querySelector('.flowers__flower');
 const flowersOrderBtn = document.querySelector('.flowers__order_btn');
 const flowersWrapper = document.querySelector('.flowers__wrapper');
 const goToChooseBtn = document.querySelector('.top__goToChooseBtn');
@@ -15,12 +17,10 @@ const formSubmit = document.querySelector('.form__submit');
 const successPopup = document.querySelector('.success');
 const successOk = document.querySelector('.success__ok');
 
-const windowWidth = window.innerWidth;
+const windowWidth = body.offsetWidth;
 let flowersWrapperPosition = windowWidth * 1.5;
 
 let currentFlowerNumber = 1;
-
-const flowersLeftValues = [504, 172, -172, -504];
 
 function showAnswer (evt) {
     evt.currentTarget.classList.toggle('questions__item--opened');
@@ -79,7 +79,7 @@ questionItems.forEach(function(qItem) {
 });
 
 function setButtonsDisabled() {
-    if (currentFlowerNumber >= flowersLeftValues.length) {
+    if (currentFlowerNumber >= flowersWrapper.children.length) {
         nextFlower.setAttribute('disabled', true);
     } else if (currentFlowerNumber <= 1) {
         prevFlower.setAttribute('disabled', true);
@@ -90,6 +90,7 @@ function setButtonsDisabled() {
 }
 
 nextFlower.addEventListener('click', function() {
+    console.log(flowers.offsetWidth, flower.offsetWidth, flowersWrapper.offsetWidth);
     currentFlowerNumber++;
     flowersPage.textContent = '0' + currentFlowerNumber.toString();
     flowersWrapperPosition -= windowWidth;
